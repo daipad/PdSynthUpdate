@@ -1,0 +1,93 @@
+#N canvas 1386 166 1095 976 16;
+#X obj 8 631 mtof;
+#X floatatom 6 691 5 0 0 0 - - -;
+#X obj 158 920 dac~;
+#X obj 365 657 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 365 694 metro 10;
+#X obj 365 750 snapshot~;
+#X floatatom 365 790 5 0 0 0 - - -;
+#X obj 715 42 vsl 15 128 0 4000 0 0 empty empty Dur 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 745 43 vsl 15 128 0 500 0 0 empty empty A 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 774 43 vsl 15 128 0 500 0 0 empty empty D 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 805 44 vsl 15 128 0 100 0 0 empty empty S 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 834 44 vsl 15 128 0 2000 0 0 empty empty R 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 344 324 5 0 127 2 Velocity - -;
+#X floatatom 426 367 5 0 5000 2 Duration - -;
+#X floatatom 806 341 5 0 5000 2 Release - -;
+#X floatatom 506 341 5 0 3000 2 Attack - -;
+#X floatatom 678 343 5 0 100 2 Sustain(level) - -;
+#X floatatom 575 342 5 0 4000 2 Decay(time) - -;
+#X floatatom 7 586 5 0 127 2 Pitch - -;
+#X obj 338 414 adsr_vol 100 400 4 100 50 800;
+#X obj 477 492 4;
+#X obj 522 493 100;
+#X obj 568 491 50;
+#X obj 616 492 800;
+#X obj 387 200 r synthDuration;
+#X obj 342 168 r synthVelocity;
+#X obj 201 335 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 210 292 t f f;
+#X obj 566 230 r synthAttack;
+#X obj 578 269 r synthDecay;
+#X obj 741 213 r synthSustain;
+#X obj 760 245 r synthRelease;
+#X obj 43 276 r waveType;
+#X obj 156 866 *~;
+#X obj 7 746 osc~;
+#X obj 537 885 phasor~;
+#X floatatom 57 331 5 0 2 0 - - -;
+#X obj 649 664 expr~ if($v1 < 1 \, 0 \, 1);
+#X obj 53 386 sel 1;
+#X obj 108 634 mtof;
+#X floatatom 106 694 5 0 0 0 - - -;
+#X floatatom 104 588 5 0 127 2 Pitch - -;
+#X obj 107 749 phasor~;
+#X obj -82 218 r synthPitchPhasor;
+#X obj -134 177 r synthPitchOsc;
+#X obj 213 183 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 210 82 r playSynth;
+#X connect 0 0 1 0;
+#X connect 1 0 34 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 12 0 19 1;
+#X connect 13 0 19 2;
+#X connect 14 0 19 6;
+#X connect 15 0 19 3;
+#X connect 16 0 19 5;
+#X connect 17 0 19 4;
+#X connect 18 0 0 0;
+#X connect 19 0 5 0;
+#X connect 19 0 33 1;
+#X connect 24 0 13 0;
+#X connect 25 0 12 0;
+#X connect 26 0 41 0;
+#X connect 26 0 18 0;
+#X connect 27 0 26 0;
+#X connect 27 1 19 0;
+#X connect 28 0 15 0;
+#X connect 29 0 17 0;
+#X connect 30 0 16 0;
+#X connect 31 0 14 0;
+#X connect 32 0 36 0;
+#X connect 33 0 2 0;
+#X connect 33 0 2 1;
+#X connect 34 0 33 0;
+#X connect 36 0 38 0;
+#X connect 39 0 40 0;
+#X connect 40 0 42 0;
+#X connect 41 0 39 0;
+#X connect 42 0 33 0;
+#X connect 43 0 41 0;
+#X connect 44 0 18 0;
+#X connect 45 0 27 0;
+#X connect 46 0 45 0;
